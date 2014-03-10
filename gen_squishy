@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+LUCE_SOURCE=${1:-../luce}
+
+MAIN=$LUCE_SOURCE/Source/lua/luce.lua
+LUCE=$LUCE_SOURCE/Source/lua/luce
+
+TRACKED=( $(git --git-dir "$LUCE_SOURCE"/.git ls-files -- Source/lua/luce) )
+
+out=squishy
+cat <<EOS > $out
+Option "no-executable"
+
+--
+Output "luce.lua"
+
+--
+Main "${MAIN}"
+
+--
+EOS
+
+for f in ${TRACKED[@]}
+do
+    f="$LUCE_SOURCE/$f"
+    [[ -r "$f" ]] || continue
+    l=${f#${LUCE_SOURCE}/Source/lua/luce/}; l=${l%.lua}; l=${l//\//.}
+    echo "Module 'luce.$l' '$f'" >> $out
+done
