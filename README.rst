@@ -39,7 +39,7 @@ To release close-source applications with Luce Embedded and/or Luce, please cont
 
 Luce is (c) 2014, Peersuasive Technologies
 
-``squish`` is is the work of Metthew Wild (who is also the creator of `Prosody
+``squish`` is is the work of Matthew Wild (who is also the creator of `Prosody
 <https://prosody.im/>`_, among many other things)
 
 sources and legal informations can be found at `squish <http://matthewwild.co.uk/projects/squish/home>`_
