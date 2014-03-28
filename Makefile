@@ -7,9 +7,10 @@ squishy: $(LUCE_SOURCES)/Source/lua/luce.lua
 
 luce.lua: squishy
 	@./squish
+	@ln -sf luce.lua oluce.lua
 
 clean:
-	@rm -f luce.lua
+	@rm -f luce.lua oluce.lua
 
 extraclean: clean
 	@rm -f squishy
